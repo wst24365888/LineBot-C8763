@@ -19,5 +19,5 @@ from C8763 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('C8763/', include('C8763.urls')),
+    path('C8763/callback', views.callback),
 ]
