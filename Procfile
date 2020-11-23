@@ -1,0 +1,1 @@
+web gunicorn NCUAI_LineBot.wsgi
