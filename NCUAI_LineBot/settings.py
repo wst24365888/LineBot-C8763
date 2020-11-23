@@ -27,7 +27,9 @@ LINE_CHANNEL_SECRET = '8e7cd38d6ccc1a6d7581d74966ad7ab8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'ncuai-linebot.herokuapp.com'
+]
 
 
 # Application definition
