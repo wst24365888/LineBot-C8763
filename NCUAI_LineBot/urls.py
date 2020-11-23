@@ -18,8 +18,6 @@ from django.urls import path
 from C8763 import views
 
 urlpatterns = [
-    url('^callback',views.callback), 
-    # 從 views.py 調用 callback 函式來回應
-
     path('admin/', admin.site.urls),
+    path('C8763/', include('C8763.urls')),
 ]
