@@ -34,11 +34,11 @@ def getEven(value):
 def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
     print("toReplace.shape: ({}, {})".format(w, h))
 
-    if w <= 0:
-        w = getEven(1)
+    # if w <= 0:
+    #     w = getEven(1)
 
-    if h <= 0:
-        h = getEven(1)
+    # if h <= 0:
+    #     h = getEven(1)
 
     lil = cv2.resize(toReplace, (w, h))    
     areaToReplace = img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset]
@@ -89,6 +89,8 @@ def getC8763Overlay(IMG_RGB):
 
     # Use detector to find landmarks
     faces = detector(gray)
+    
+    LAST_WIDTH = 30
 
     for face in faces:
         x1 = face.left() # left point
@@ -113,6 +115,21 @@ def getC8763Overlay(IMG_RGB):
         LEFT_EYE_X, LEFT_EYE_Y, LEFT_EYE_WIDTH, LEFT_EYE_ANGLE = get_X_Y_WIDTH(36, 42, landmarks, C8763_LEFT_EYE_SCALE)
         RIGHT_EYE_X, RIGHT_EYE_Y, RIGHT_EYE_WIDTH, RIGHT_EYE_ANGLE = get_X_Y_WIDTH(42, 48, landmarks, C8763_RIGHT_EYE_SCALE)
         MOUTH_X, MOUTH_Y, MOUTH_WIDTH, MOUTH_ANGLE = get_X_Y_WIDTH(48, 61, landmarks, C8763_MOUTH_SCALE)
+
+        if LEFT_EYE_WIDTH <= 0:
+            LEFT_EYE_WIDTH = LAST_WIDTH
+        else:
+            LAST_WIDTH = LEFT_EYE_WIDTH
+
+        if RIGHT_EYE_WIDTH <= 0:
+            RIGHT_EYE_WIDTH = LAST_WIDTH
+        else:
+            LAST_WIDTH = RIGHT_EYE_WIDTH
+
+        if MOUTH_WIDTH <= 0:
+            MOUTH_WIDTH = LAST_WIDTH
+        else:
+            LAST_WIDTH = MOUTH_WIDTH
 
         # Draw Point
 
