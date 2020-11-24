@@ -12,3 +12,4 @@ def getImage(messageID):
     r = requests.get('https://api.line.me/v2/bot/message/{messageID}/content', headers = my_headers)
 
     print(r)
+    print("aaa")

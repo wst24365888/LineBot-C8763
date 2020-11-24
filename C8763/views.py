@@ -30,8 +30,8 @@ def callback(request):
         for event in events:
             print(event)
             getImage.getImage(event.message.id)
+            
             if isinstance(event, MessageEvent):  # 如果有訊息事件
-                get
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
                     TextSendMessage(text="ok")
