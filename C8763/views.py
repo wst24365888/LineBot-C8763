@@ -27,10 +27,10 @@ def callback(request):
  
         for event in events:
             if isinstance(event, MessageEvent):  # 如果有訊息事件
-                print(event.message)
+                print(event.message.content_provider)
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
-                    TextSendMessage(text=event.message.text)
+                    TextSendMessage(text="ok")
                 )
         return HttpResponse()
     else:
