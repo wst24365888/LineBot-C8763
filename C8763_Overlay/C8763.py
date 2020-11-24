@@ -69,7 +69,7 @@ def getC8763Overlay(IMG_RGB):
 
   # read the image
   # IMG = cv2.imread("test12.jpg")
-  IMG = IMG_RGB
+  IMG = np.copy(IMG_RGB)
 
   # Convert image into grayscale
   gray = cv2.cvtColor(src=IMG, code=cv2.COLOR_RGB2GRAY)
