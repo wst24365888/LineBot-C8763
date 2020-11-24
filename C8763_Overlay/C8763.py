@@ -66,6 +66,7 @@ def getC8763Overlay(IMG_RGB):
 
   # Load the predictor
   predictor = dlib.shape_predictor("/app/C8763_Overlay/shape_predictor_68_face_landmarks.dat")
+  return IMG_RGB
 
   # read the image
   # IMG = cv2.imread("test12.jpg")
