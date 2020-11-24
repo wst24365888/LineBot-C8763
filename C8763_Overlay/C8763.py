@@ -46,15 +46,6 @@ def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
     img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset] = areaToReplace
 
 def getC8763Overlay(IMG_RGB):
-
-  for dirPath, dirNames, fileNames in os.walk(os.getcwd()):
-    # if dirPath[0:12] == '/app/.heroku':
-    #   continue
-    # print(dirPath)
-    for f in fileNames:
-      if f == 'C8763_left_eye_rotate.png':
-        print(os.path.join(dirPath, f))
-
   # Load Assets
   SCALE = 1.2
 
@@ -161,3 +152,5 @@ def getC8763Overlay(IMG_RGB):
   # plt.imshow(IMG_RGB)
 
   print(IMG_RGB)
+
+  return IMG_RGB
