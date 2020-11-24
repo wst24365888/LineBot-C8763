@@ -48,7 +48,7 @@ def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
 def getC8763Overlay(IMG_RGB):
 
   for dirPath, dirNames, fileNames in os.walk(os.getcwd()):
-    if dirPath[0:12] == './heroku':
+    if dirPath[0:12] == '/app/./heroku':
       continue
     print(dirPath)
     # for f in fileNames:
