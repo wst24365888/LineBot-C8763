@@ -34,9 +34,6 @@ def getEven(value):
 def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
     lil = cv2.resize(toReplace, (w, h))    
     areaToReplace = img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset]
-
-    print(lil.shape)
-    print(areaToReplace.shape)
     
     for row in range(h):
         for column in range(w):
@@ -156,6 +153,6 @@ def getC8763Overlay(IMG_RGB):
   # plt.figure(figsize=(20, 20))
   # plt.imshow(IMG_RGB)
 
-  print(IMG_RGB)
+  print("Overlay Complete.")
 
   return IMG_RGB

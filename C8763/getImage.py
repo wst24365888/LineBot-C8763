@@ -15,8 +15,8 @@ def getImageFromID(messageID):
         f = io.BytesIO(response.read())
 
     img = Image.open(f)
-    pix = np.array(img)
+    imgArray = np.array(img)
 
-    print(pix.shape)
+    print("imgArray.shape: {}".format(imgArray.shape))
 
-    return pix
+    return imgArray
