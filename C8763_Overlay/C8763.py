@@ -26,7 +26,7 @@ def get_X_Y_WIDTH(begin, end, landmarks, scale):
 
     angle = -math.atan2((x_max_y-x_min_y), ((x_max-x_min)))/math.pi*180
 
-    return int(x/(end-begin)), int(y/(end-begin)), int((x_max-x_min)*scale)*math.sqrt(math.sqrt(math.sqrt(abs(angle)))), angle
+    return int(x/(end-begin)), int(y/(end-begin)), int((x_max-x_min)*scale)*(1 if angle < 5 else math.sqrt(math.sqrt(math.sqrt(abs(angle))))), angle
 
 def getEven(value):
     return int(value) if int(value) % 2 == 0 else int(value) + 1
@@ -116,23 +116,6 @@ def getC8763Overlay(IMG_RGB):
         RIGHT_EYE_X, RIGHT_EYE_Y, RIGHT_EYE_WIDTH, RIGHT_EYE_ANGLE = get_X_Y_WIDTH(42, 48, landmarks, C8763_RIGHT_EYE_SCALE)
         MOUTH_X, MOUTH_Y, MOUTH_WIDTH, MOUTH_ANGLE = get_X_Y_WIDTH(48, 61, landmarks, C8763_MOUTH_SCALE)
 
-        # if width made some mistake (eg. <= 0), then use last width
-
-        if LEFT_EYE_WIDTH <= 0:
-            LEFT_EYE_WIDTH = LAST_WIDTH
-        else:
-            LAST_WIDTH = LEFT_EYE_WIDTH
-
-        if RIGHT_EYE_WIDTH <= 0:
-            RIGHT_EYE_WIDTH = LAST_WIDTH
-        else:
-            LAST_WIDTH = RIGHT_EYE_WIDTH
-
-        if MOUTH_WIDTH <= 0:
-            MOUTH_WIDTH = LAST_WIDTH
-        else:
-            LAST_WIDTH = MOUTH_WIDTH
-
         # Draw Point
 
         cv2.circle(img=IMG_RGB, center=(LEFT_EYE_X, LEFT_EYE_Y), radius=3, color=(0, 0, 255), thickness=-1)
@@ -162,7 +145,7 @@ def getC8763Overlay(IMG_RGB):
         IMG_RGB = overlay(RIGHT_EYE_X, RIGHT_EYE_Y, RIGHT_EYE_WIDTH, RIGHT_EYE_HEIGHT, RIGHT_EYE_X_OFFSET, RIGHT_EYE_Y_OFFSET, ndimage.rotate(C8763_RIGHT_EYE, LEFT_EYE_ANGLE+5), IMG_RGB)
 
         # Overlay C8763 MOUTH
-        MOUTH_HEIGHT = int(MOUTH_WIDTH/C8763_MOUTH_RATIO*math.sqrt(math.sqrt(math.sqrt(abs(MOUTH_ANGLE)))))
+        MOUTH_HEIGHT = int(MOUTH_WIDTH/C8763_MOUTH_RATIO*(1 if MOUTH_ANGLE < 5 else math.sqrt(math.sqrt(math.sqrt(abs(MOUTH_ANGLE))))))
 
         MOUTH_WIDTH = getEven(MOUTH_WIDTH)
         MOUTH_HEIGHT = getEven(MOUTH_HEIGHT)
