@@ -17,6 +17,6 @@ def getImageFromID(messageID):
     img = Image.open(f)
     pix = np.array(img)
 
-    print(pix.shpae)
+    print(pix.shape)
 
     return pix
