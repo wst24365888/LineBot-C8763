@@ -32,9 +32,7 @@ def uploadImage(filename, path):
 
     imageInfo = imgurUpload.upload(imgur_client, path, config)
     print(imageInfo['link'])
-    
-    try:
-        os.remove(path)
+    os.remove(path)
 
     return imageInfo['link']
 
