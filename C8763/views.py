@@ -26,11 +26,8 @@ def callback(request):
             return HttpResponseBadRequest()
  
         for event in events:
+            print(event)
             if isinstance(event, MessageEvent):  # 如果有訊息事件
-                print(event)
-                print(event.message)
-                print(event.message.content_provider)
-                print(event.message.content_provider.original_content_url)
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
                     TextSendMessage(text="ok")
