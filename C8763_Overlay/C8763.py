@@ -48,9 +48,11 @@ def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
 def getC8763Overlay(IMG_RGB):
 
   for dirPath, dirNames, fileNames in os.walk(os.getcwd()):
+    if dirPath == './heroku':
+      continue
     print(dirPath)
-    for f in fileNames:
-        print(os.path.join(dirPath, f))
+    # for f in fileNames:
+    #     print(os.path.join(dirPath, f))
 
   # Load Assets
   SCALE = 1.2
