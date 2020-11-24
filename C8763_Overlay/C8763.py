@@ -46,8 +46,8 @@ def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
     img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset] = areaToReplace
 
 def getC8763Overlay(IMG_RGB):
-  print(os.getcwd())
-    # Load Assets
+  os.walk()
+  # Load Assets
   SCALE = 1.2
 
   C8763_LEFT_EYE = cv2.imread('C8763_left_eye_rotate.png', cv2.IMREAD_UNCHANGED)
