@@ -48,24 +48,25 @@ def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
 def getC8763Overlay(IMG_RGB):
 
   for dirPath, dirNames, fileNames in os.walk(os.getcwd()):
-    if dirPath[0:12] == '/app/.heroku':
-      continue
-    print(dirPath)
-    # for f in fileNames:
-    #     print(os.path.join(dirPath, f))
+    # if dirPath[0:12] == '/app/.heroku':
+    #   continue
+    # print(dirPath)
+    for f in fileNames:
+      if f == 'C8763_left_eye_rotate.png':
+        print(os.path.join(dirPath, f))
 
   # Load Assets
   SCALE = 1.2
 
-  C8763_LEFT_EYE = cv2.imread('/C8763_Overlay/C8763_left_eye_rotate.png', cv2.IMREAD_UNCHANGED)
+  C8763_LEFT_EYE = cv2.imread('/app/C8763_Overlay/C8763_left_eye_rotate.png', cv2.IMREAD_UNCHANGED)
   C8763_LEFT_EYE_RATIO = C8763_LEFT_EYE.shape[1] / C8763_LEFT_EYE.shape[0]
   C8763_LEFT_EYE_SCALE = 2.3*SCALE
 
-  C8763_RIGHT_EYE = cv2.imread('/C8763_Overlay/C8763_right_eye.png', cv2.IMREAD_UNCHANGED)
+  C8763_RIGHT_EYE = cv2.imread('/app/C8763_Overlay/C8763_right_eye.png', cv2.IMREAD_UNCHANGED)
   C8763_RIGHT_EYE_RATIO = C8763_RIGHT_EYE.shape[1] / C8763_RIGHT_EYE.shape[0]
   C8763_RIGHT_EYE_SCALE = 2.1*SCALE
 
-  C8763_MOUTH = cv2.imread('/C8763_Overlay/C8763_mouth.png', cv2.IMREAD_UNCHANGED)
+  C8763_MOUTH = cv2.imread('/app/C8763_Overlay/C8763_mouth.png', cv2.IMREAD_UNCHANGED)
   C8763_MOUTH_RATIO = C8763_MOUTH.shape[1] / C8763_MOUTH.shape[0]
   C8763_MOUTH_SCALE = 1.25*SCALE
 
