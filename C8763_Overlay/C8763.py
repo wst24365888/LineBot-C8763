@@ -57,15 +57,15 @@ def getC8763Overlay(IMG_RGB):
   # Load Assets
   SCALE = 1.2
 
-  C8763_LEFT_EYE = cv2.imread('C8763_left_eye_rotate.png', cv2.IMREAD_UNCHANGED)
+  C8763_LEFT_EYE = cv2.imread('/app/C8763_OverlayC8763_left_eye_rotate.png', cv2.IMREAD_UNCHANGED)
   C8763_LEFT_EYE_RATIO = C8763_LEFT_EYE.shape[1] / C8763_LEFT_EYE.shape[0]
   C8763_LEFT_EYE_SCALE = 2.3*SCALE
 
-  C8763_RIGHT_EYE = cv2.imread('C8763_right_eye.png', cv2.IMREAD_UNCHANGED)
+  C8763_RIGHT_EYE = cv2.imread('/app/C8763_OverlayC8763_right_eye.png', cv2.IMREAD_UNCHANGED)
   C8763_RIGHT_EYE_RATIO = C8763_RIGHT_EYE.shape[1] / C8763_RIGHT_EYE.shape[0]
   C8763_RIGHT_EYE_SCALE = 2.1*SCALE
 
-  C8763_MOUTH = cv2.imread('C8763_mouth.png', cv2.IMREAD_UNCHANGED)
+  C8763_MOUTH = cv2.imread('/app/C8763_OverlayC8763_mouth.png', cv2.IMREAD_UNCHANGED)
   C8763_MOUTH_RATIO = C8763_MOUTH.shape[1] / C8763_MOUTH.shape[0]
   C8763_MOUTH_SCALE = 1.25*SCALE
 
