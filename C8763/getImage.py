@@ -1,4 +1,7 @@
 import requests
+
+from linebot import LineBotApi
+
 from django.conf import settings
 
 def getImage(messageID):
