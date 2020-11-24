@@ -45,6 +45,8 @@ def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
 
     img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset] = areaToReplace
 
+    return img
+
 def getC8763Overlay(IMG_RGB):
   # Load Assets
   SCALE = 1.2
@@ -66,7 +68,6 @@ def getC8763Overlay(IMG_RGB):
 
   # Load the predictor
   predictor = dlib.shape_predictor("/app/C8763_Overlay/shape_predictor_68_face_landmarks.dat")
-  return IMG_RGB
 
   # read the image
   # IMG = cv2.imread("test12.jpg")
@@ -124,7 +125,7 @@ def getC8763Overlay(IMG_RGB):
       LEFT_EYE_X_OFFSET = getEven(LEFT_EYE_WIDTH/(8 - (0 if LEFT_EYE_ANGLE < 5 else LEFT_EYE_ANGLE/4)))
       LEFT_EYE_Y_OFFSET = getEven(LEFT_EYE_HEIGHT/(6 + (0 if LEFT_EYE_ANGLE < 5 else LEFT_EYE_ANGLE/4)))
 
-      overlay(LEFT_EYE_X, LEFT_EYE_Y, LEFT_EYE_WIDTH, LEFT_EYE_HEIGHT, LEFT_EYE_X_OFFSET, LEFT_EYE_Y_OFFSET, ndimage.rotate(C8763_LEFT_EYE, LEFT_EYE_ANGLE + (10 if LEFT_EYE_ANGLE < 5 else 20)), IMG_RGB)
+      IMG_RGB = overlay(LEFT_EYE_X, LEFT_EYE_Y, LEFT_EYE_WIDTH, LEFT_EYE_HEIGHT, LEFT_EYE_X_OFFSET, LEFT_EYE_Y_OFFSET, ndimage.rotate(C8763_LEFT_EYE, LEFT_EYE_ANGLE + (10 if LEFT_EYE_ANGLE < 5 else 20)), IMG_RGB)
 
       # Overlay C8763 RIGHT EYE
       RIGHT_EYE_HEIGHT = int(RIGHT_EYE_WIDTH/C8763_RIGHT_EYE_RATIO)
@@ -134,7 +135,7 @@ def getC8763Overlay(IMG_RGB):
 
       RIGHT_EYE_Y_OFFSET = getEven(RIGHT_EYE_HEIGHT/4.5)
 
-      overlay(RIGHT_EYE_X, RIGHT_EYE_Y, RIGHT_EYE_WIDTH, RIGHT_EYE_HEIGHT, 0, RIGHT_EYE_Y_OFFSET, ndimage.rotate(C8763_RIGHT_EYE, LEFT_EYE_ANGLE+5), IMG_RGB)
+      IMG_RGB = overlay(RIGHT_EYE_X, RIGHT_EYE_Y, RIGHT_EYE_WIDTH, RIGHT_EYE_HEIGHT, 0, RIGHT_EYE_Y_OFFSET, ndimage.rotate(C8763_RIGHT_EYE, LEFT_EYE_ANGLE+5), IMG_RGB)
 
       # Overlay C8763 MOUTH
       MOUTH_HEIGHT = int(MOUTH_WIDTH/C8763_MOUTH_RATIO*math.sqrt(math.sqrt(math.sqrt(abs(MOUTH_ANGLE)))))
@@ -142,7 +143,7 @@ def getC8763Overlay(IMG_RGB):
       MOUTH_WIDTH = getEven(MOUTH_WIDTH)
       MOUTH_HEIGHT = getEven(MOUTH_HEIGHT)
 
-      overlay(MOUTH_X, MOUTH_Y, MOUTH_WIDTH, MOUTH_HEIGHT, 0, 0, ndimage.rotate(C8763_MOUTH, MOUTH_ANGLE+5), IMG_RGB)
+      IMG_RGB = overlay(MOUTH_X, MOUTH_Y, MOUTH_WIDTH, MOUTH_HEIGHT, 0, 0, ndimage.rotate(C8763_MOUTH, MOUTH_ANGLE+5), IMG_RGB)
 
       # Loop through all the points
       # for n in range(0, 68):
