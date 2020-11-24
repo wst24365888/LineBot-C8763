@@ -34,10 +34,10 @@ def getEven(value):
 def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
     print("toReplace.shape: ({}, {})".format(w, h))
 
-    if w < 0:
+    if w <= 0:
         w = 1
 
-    if h < 0:
+    if h <= 0:
         h = 1
 
     lil = cv2.resize(toReplace, (w, h))    
