@@ -81,6 +81,8 @@ def getC8763Overlay(IMG_RGB):
   # IMG_RGB = cv2.merge([r,g,b])
   IMG_RGB = np.lib.pad(IMG_RGB, ((0,0),(0,0),(0,1)), 'constant', constant_values=(255))
 
+  return IMG_RGB
+
   # return IMG_RGB
 
   # Use detector to find landmarks
