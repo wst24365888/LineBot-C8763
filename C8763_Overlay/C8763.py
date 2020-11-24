@@ -116,6 +116,8 @@ def getC8763Overlay(IMG_RGB):
         RIGHT_EYE_X, RIGHT_EYE_Y, RIGHT_EYE_WIDTH, RIGHT_EYE_ANGLE = get_X_Y_WIDTH(42, 48, landmarks, C8763_RIGHT_EYE_SCALE)
         MOUTH_X, MOUTH_Y, MOUTH_WIDTH, MOUTH_ANGLE = get_X_Y_WIDTH(48, 61, landmarks, C8763_MOUTH_SCALE)
 
+        # if width made some mistake (eg. <= 0), then use last width
+
         if LEFT_EYE_WIDTH <= 0:
             LEFT_EYE_WIDTH = LAST_WIDTH
         else:
