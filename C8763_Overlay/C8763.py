@@ -46,7 +46,7 @@ def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
     img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset] = areaToReplace
 
 def getC8763Overlay(IMG_RGB):
-  os.walk()
+  os.walk(os.getcwd())
   # Load Assets
   SCALE = 1.2
 
@@ -72,7 +72,7 @@ def getC8763Overlay(IMG_RGB):
   # IMG = cv2.imread("test12.jpg")
 
   # Convert image into grayscale
-  gray = cv2.cvtColor(src=IMG, code=cv2.COLOR_BGR2GRAY)
+  gray = cv2.cvtColor(src=IMG_RGB, code=cv2.COLOR_RGB2GRAY)
 
   # Convert to PNG
   # b,g,r = cv2.split(IMG)
