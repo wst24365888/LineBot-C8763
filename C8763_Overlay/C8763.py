@@ -32,7 +32,8 @@ def getEven(value):
   return int(value) if int(value) % 2 == 0 else int(value) + 1
 
 def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
-    lil = cv2.resize(toReplace, (w, h), interpolation = cv2.INTER_AREA)    
+    print("toReplace.shape: ({}, {})".format(w, h))
+    lil = cv2.resize(toReplace, (w, h))    
     areaToReplace = img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset]
     
     for row in range(h):
@@ -68,10 +69,9 @@ def getC8763Overlay(IMG_RGB):
 
   # read the image
   # IMG = cv2.imread("test12.jpg")
-  IMG = np.copy(IMG_RGB)
 
   # Convert image into grayscale
-  gray = cv2.cvtColor(src=IMG, code=cv2.COLOR_RGB2GRAY)
+  gray = cv2.cvtColor(src=np.copy(IMG_RGB), code=cv2.COLOR_RGB2GRAY)
 
   # Convert to PNG
   # b,g,r = cv2.split(IMG)
