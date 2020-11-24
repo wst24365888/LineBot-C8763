@@ -8,7 +8,7 @@ from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage
 
 from . import getImage
-from C8763-Overlay import C8763 as filter_C8763
+from C8763_Overlay import C8763 as filter_C8763
  
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
