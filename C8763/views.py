@@ -47,7 +47,8 @@ def callback(request):
         for event in events:
             print(event)
             img_rgb = getImage.getImageFromID(event.message.id)
-            saveImg(event.message.id, filter_C8763.getC8763Overlay(img_rgb))
+            saveImg(event.message.id, img_rgb)
+            # saveImg(event.message.id, filter_C8763.getC8763Overlay(img_rgb))
             uploadImage(event.message.id, "/app/{}.png".format(event.message.id))
             
             if isinstance(event, MessageEvent):  # 如果有訊息事件
