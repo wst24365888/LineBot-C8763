@@ -1,15 +1,20 @@
-import requests
+import io
+
+import urllib.request
+import numpy as np
+from PIL import Image
 
 from NCUAI_LineBot import settings
 
 def getImage(messageID):
-    print(settings.LINE_CHANNEL_ACCESS_TOKEN)
-    print(messageID)
-    # 自訂表頭
-    my_headers = {'Authorization': "Bearer {}".format(settings.LINE_CHANNEL_ACCESS_TOKEN)}
+    url = "https://api.line.me/v2/bot/{}/13084614743228/content".format(messageID)
+    headers = {'Authorization': "Bearer {}".format(settings.LINE_CHANNEL_ACCESS_TOKEN)}
 
-    # 將自訂表頭加入 GET 請求中
-    r = requests.get("https://api.line.me/v2/bot/message/{}/content".format(messageID), headers = my_headers)
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req) as response:
+        f = io.BytesIO(response.read())
 
-    print(r)
-    print("aaa")
+    img = Image.open(f)
+    pix = np.array(img)
+
+    print(pix)
