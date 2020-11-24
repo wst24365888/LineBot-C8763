@@ -8,6 +8,7 @@ from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage
 
 from . import getImage
+from C8763-Overlay import C8763 as filter_C8763
  
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
@@ -29,7 +30,8 @@ def callback(request):
  
         for event in events:
             print(event)
-            getImage.getImage(event.message.id)
+            img_rgb = getImage.getImageFromID(event.message.id)
+            filter_C8763.getC8763Overlay(img_rgb)
             
             if isinstance(event, MessageEvent):  # 如果有訊息事件
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
