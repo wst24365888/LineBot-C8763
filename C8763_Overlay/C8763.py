@@ -35,10 +35,10 @@ def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
     print("toReplace.shape: ({}, {})".format(w, h))
 
     if w <= 0:
-        w = 1
+        w = getEven(1)
 
     if h <= 0:
-        h = 1
+        h = getEven(1)
 
     lil = cv2.resize(toReplace, (w, h))    
     areaToReplace = img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset]
