@@ -63,8 +63,8 @@ def callback(request):
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
                     ImageSendMessage(
-                        originalContentUrl='https://developers.line.biz/media/messaging-api/messages/image-full-04fbba55.png',
-                        previewImageUrl='https://developers.line.biz/media/messaging-api/messages/image-167efb33.png'
+                        original_content_url=link,
+                        preview_image_url=link
                     )
                 )
         return HttpResponse()
