@@ -5,12 +5,15 @@ from django.conf import settings
  
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import MessageEvent, TextSendMessage
+from linebot.models import (
+    MessageEvent, ImagemapSendMessage, TextSendMessage, ImageSendMessage, LocationSendMessage, FlexSendMessage, VideoSendMessage
+)
 
 from . import getImage
 from . import imgurUpload
 from C8763_Overlay import C8763 as filter_C8763
 from PIL import Image
+
 
 import os
 
@@ -59,7 +62,10 @@ def callback(request):
             if isinstance(event, MessageEvent):  # 如果有訊息事件
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
-                    TextSendMessage(text=link)
+                    ImageSendMessage(
+                        originalContentUrl='https://developers.line.biz/media/messaging-api/messages/image-full-04fbba55.png',
+                        previewImageUrl='https://developers.line.biz/media/messaging-api/messages/image-167efb33.png'
+                    )
                 )
         return HttpResponse()
     else:
