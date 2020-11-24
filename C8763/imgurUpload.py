@@ -19,8 +19,8 @@ def getauthorize():
     client.set_user_auth(credentials['access_token'], credentials['refresh_token'])
 
     print("Authentication successful! Here are the details:")
-    print("   Access token:  {0}".format(credentials['access_token']))
-    print("   Refresh token: {0}".format(credentials['refresh_token']))
+    print("Access token:  {0}".format(credentials['access_token']))
+    print("Refresh token: {0}".format(credentials['refresh_token']))
     return client
 
 
