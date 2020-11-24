@@ -1,13 +1,11 @@
 import requests
 
-from linebot import LineBotApi
-
-from django.conf import settings
+from NCUAI_LineBot import settings
 
 def getImage(messageID):
-    print(LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN))
+    print(settings.LINE_CHANNEL_ACCESS_TOKEN)
     # 自訂表頭
-    my_headers = {'Authorization': "Bearer {}".format(LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN))}
+    my_headers = {'Authorization': "Bearer {}".format(settings.LINE_CHANNEL_ACCESS_TOKEN)}
 
     # 將自訂表頭加入 GET 請求中
     r = requests.get('https://api.line.me/v2/bot/message/{messageID}/content', headers = my_headers)
