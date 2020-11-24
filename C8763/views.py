@@ -12,6 +12,8 @@ from . import imgurUpload
 from C8763_Overlay import C8763 as filter_C8763
 from PIL import Image
 
+import os
+
 imgur_client = imgurUpload.setauthorize()
  
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -30,6 +32,9 @@ def uploadImage(filename, path):
 
     imageInfo = imgurUpload.upload(imgur_client, path, config)
     print(imageInfo['link'])
+    
+    try:
+        os.remove(path)
 
     return imageInfo['link']
 
