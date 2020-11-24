@@ -68,6 +68,7 @@ def callback(request):
                         )
                     )
             except Exception as e:
+                print(e)
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                         event.reply_token,
                         TextSendMessage(

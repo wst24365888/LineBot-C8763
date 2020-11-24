@@ -32,7 +32,7 @@ def getEven(value):
   return int(value) if int(value) % 2 == 0 else int(value) + 1
 
 def overlay(x, y, w, h, xOffset, yOffset, toReplace, img):
-    lil = cv2.resize(toReplace, (w, h))    
+    lil = cv2.resize(toReplace, (w, h), interpolation = cv2.INTER_AREA)    
     areaToReplace = img[y - int(h/2) - yOffset:y + int(h/2) - yOffset, x - int(w/2) - xOffset : x + int(w/2) - xOffset]
     
     for row in range(h):
@@ -120,7 +120,7 @@ def getC8763Overlay(IMG_RGB):
       LEFT_EYE_HEIGHT = getEven(LEFT_EYE_HEIGHT)
       
       LEFT_EYE_X_OFFSET = getEven(LEFT_EYE_WIDTH/(8 - (0 if LEFT_EYE_ANGLE < 5 else LEFT_EYE_ANGLE/4)))
-      LEFT_EYE_Y_OFFSET = getEven(LEFT_EYE_HEIGHT/(6 + (0 if LEFT_EYE_ANGLE < 5 else LEFT_EYE_ANGLE/3)))
+      LEFT_EYE_Y_OFFSET = getEven(LEFT_EYE_HEIGHT/(6 + (0 if LEFT_EYE_ANGLE < 5 else LEFT_EYE_ANGLE/6)))
 
       IMG_RGB = overlay(LEFT_EYE_X, LEFT_EYE_Y, LEFT_EYE_WIDTH, LEFT_EYE_HEIGHT, LEFT_EYE_X_OFFSET, LEFT_EYE_Y_OFFSET, ndimage.rotate(C8763_LEFT_EYE, LEFT_EYE_ANGLE + (10 if LEFT_EYE_ANGLE < 5 else 20)), IMG_RGB)
 
