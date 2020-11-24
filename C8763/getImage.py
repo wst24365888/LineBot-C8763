@@ -1,6 +1,5 @@
 import requests
 from django.conf import settings
-from . import settings
 
 def getImage(messageID):
     # 自訂表頭
