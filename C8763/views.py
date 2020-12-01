@@ -65,7 +65,7 @@ def callback(request):
             if(event.message.type == "text"):
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
-                    greetingDict
+                    greetingMessage
                 )
             elif(event.message.type == "image"):
                 try:
