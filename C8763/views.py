@@ -55,8 +55,15 @@ def callback(request):
  
         for event in events:
             print(event)
+
+            usageCounter = None
+            with open("/app/C8763/usageCounter", 'r', encoding='utf8') as f:
+                usageCounter = int(f.read()) + 1
+                f.write(str(usageCounter))
+                f.close()
+
             if(event.message.type == "text"):
-                replyGreeting.replyGreeting(event.reply_token)
+                replyGreeting.replyGreeting(event.reply_token, usageCounter)
                 # print(event.reply_token)
             elif(event.message.type == "image"):
                 try:
@@ -66,7 +73,7 @@ def callback(request):
                     
                     # if isinstance(event, MessageEvent):  # 如果有訊息事件
                         
-                    line_bot_api.reply_message(  # 回復傳入的訊息文字
+                    line_bot_api.reply_message(
                         event.reply_token,
                         ImageSendMessage(
                             original_content_url=link,

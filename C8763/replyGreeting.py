@@ -12,7 +12,7 @@ def post_data(url, data, headers):
     resp = request.urlopen(req)
     return resp.read(), resp.getheaders()
 
-def replyGreeting(replyToken):
+def replyGreeting(replyToken, usageCounter):
     greetingMessage = None
 
     with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
@@ -23,6 +23,9 @@ def replyGreeting(replyToken):
     pics = ["https://i.ytimg.com/vi/paIuEIufGyw/maxresdefault.jpg", "https://i.ytimg.com/vi/B_AABV9KUQY/maxresdefault.jpg", "https://imgur.com/LpNni5L.jpg"]
 
     greetingMessage["hero"]["url"] = pics[random.randint(0,2)]
+    greetingMessage["footer"]["contents"][1]["contents"][0]["text"] = str(usageCounter)
+    greetingMessage["footer"]["contents"][2]["contents"][0]["text"] = "({}%)".format(int(usageCounter/48763))
+    greetingMessage["footer"]["contents"][2]["contents"][1]["contents"][0]["width"] = "{}%".format(int(usageCounter/48763))
 
     data = json.dumps({
         "replyToken": replyToken,
@@ -67,8 +70,8 @@ def replyGreeting(replyToken):
         "Authorization": "Bearer {}".format(settings.LINE_CHANNEL_ACCESS_TOKEN)
     }
 
-    print(data)
-    print(headers)
+    # print(data)
+    # print(headers)
 
     r = post_data("https://api.line.me/v2/bot/message/reply", data, headers)
 
