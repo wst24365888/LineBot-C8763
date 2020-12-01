@@ -19,7 +19,11 @@ def replyGreeting(replyToken):
     data = json.dumps({
         "replyToken": replyToken,
         "messages": [
-            greetingMessage
+            {
+                "type": "flex",
+                "altText": "您有星爆訊息",
+                "contents": greetingMessage
+            }
         ]
     })
 
