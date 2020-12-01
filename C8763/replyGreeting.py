@@ -30,7 +30,8 @@ def replyGreeting(replyToken):
                             # "imageUrl": "https://xxx/image1.png",
                             "action": {
                                 "type": "message",
-                                "label": "使用說明"
+                                "label": "使用說明",
+                                "text": "使用說明"
                             }
                         },
                         {
