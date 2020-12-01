@@ -29,6 +29,14 @@ def replyGreeting(replyToken):
                             "type": "action",
                             # "imageUrl": "https://xxx/image1.png",
                             "action": {
+                                "type": "message",
+                                "label": "使用說明"
+                            }
+                        },
+                        {
+                            "type": "action",
+                            # "imageUrl": "https://xxx/image1.png",
+                            "action": {
                                 "type": "camera",
                                 "label": "開啟相機"
                             }
