@@ -1,5 +1,7 @@
-from urllib import request
 import json
+import random
+
+from urllib import request
 from django.conf import settings
 
 def post_data(url, data, headers):
@@ -15,6 +17,10 @@ def replyGreeting(replyToken):
 
     with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
         greetingMessage = json.load(f)
+
+    gifs = ["https://imgur.com/U8nbxfa.gif", "https://imgur.com/uGGaVZP.gif", "https://imgur.com/wGz2pqK.gif"]
+
+    greetingMessage["hero"]["url"] = gifs[random.randint(0,2)]
 
     data = json.dumps({
         "replyToken": replyToken,
@@ -36,7 +42,6 @@ def replyGreeting(replyToken):
                         },
                         {
                             "type": "action",
-                            # "imageUrl": "https://xxx/image1.png",
                             "action": {
                                 "type": "camera",
                                 "label": "開啟相機"
@@ -44,7 +49,6 @@ def replyGreeting(replyToken):
                         },
                         {
                             "type": "action",
-                            # "imageUrl": "https://xxx/image1.png",
                             "action": {
                                 "type": "cameraRoll",
                                 "label": "開啟相簿"
