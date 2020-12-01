@@ -9,6 +9,8 @@ from linebot.models import (
     MessageEvent, ImagemapSendMessage, TextSendMessage, ImageSendMessage, LocationSendMessage, FlexSendMessage, VideoSendMessage
 )
 
+import json
+
 from . import getImage
 from . import imgurUpload
 from C8763_Overlay import C8763 as filter_C8763
@@ -21,6 +23,15 @@ imgur_client = imgurUpload.setauthorize()
  
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
+
+with open("greeting.json", 'r', encoding='utf8') as f:
+        jsonArray = json.load(f)
+
+greetingMessage = None
+
+for jsonObject in jsonArray:
+    if jsonObject.get('type') == "bubble":
+        greetingMessage = FlexSendMessage.new_from_json_dict(jsonObject)
 
 def saveImg(messageId, img_rgb):
     img = Image.fromarray(img_rgb, 'RGBA')
@@ -57,8 +68,8 @@ def callback(request):
             if(event.message.type == "text"):
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
-                    TextSendMessage(
-                        text="上傳含人臉ㄉ照片，他會變得很快~"
+                    FlexSendMessage(
+                        contents=greetingMessage
                     )
                 )
             elif(event.message.type == "image"):

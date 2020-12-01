@@ -1,0 +1,76 @@
+{
+    "type": "bubble",
+    "size": "mega",
+    "direction": "ltr",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "none",
+      "margin": "none",
+      "backgroundColor": "#FFFFFFFF",
+      "borderColor": "#FFFFFFFF",
+      "contents": [
+        {
+          "type": "text",
+          "text": "星爆",
+          "weight": "bold",
+          "size": "xxl",
+          "color": "#000000FF",
+          "align": "center",
+          "margin": "none",
+          "contents": []
+        }
+      ]
+    },
+    "hero": {
+      "type": "image",
+      "url": "https://yt3.ggpht.com/a/AATXAJzrnu-aOX1N8ycZiYOQpcXvUmfRn9zwyiIDH5v1=s900-c-k-c0xffffffff-no-rj-mo",
+      "margin": "none",
+      "size": "full",
+      "aspectRatio": "1:1",
+      "aspectMode": "cover",
+      "backgroundColor": "#000000FF"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "他很快",
+          "color": "#000000FF",
+          "align": "center",
+          "contents": []
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "camera",
+            "label": "開啟相機",
+            "text": "開啟相機"
+          },
+          "color": "#DD8BF3FF"
+        },
+        {
+          "type": "separator",
+          "margin": "md",
+          "color": "#FFFFFF00"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "cameraRoll",
+            "label": "開啟相簿",
+            "text": "開啟相簿"
+          },
+          "color": "#DD8BF3FF"
+        }
+      ]
+    }
+  }
