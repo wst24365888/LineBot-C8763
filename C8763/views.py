@@ -57,7 +57,7 @@ def callback(request):
             print(event)
 
             usageCounter = None
-            with open("/app/C8763/usageCounter.txt", 'w+', encoding='utf8') as f:
+            with open("/app/C8763/usageCounter.txt", 'r+', encoding='utf8') as f:
                 usageCounter = int(f.read()) + 1
                 f.seek(0)   # 指針歸0
                 f.write(str(usageCounter))
