@@ -28,6 +28,8 @@ greetingMessage = None
 
 with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
     greetingDict = json.load(f)
+    print(greetingDict)
+    print("-----------")
     greetingMessage = FlexSendMessage.new_from_json_dict(greetingDict)
     print(greetingMessage)
     print("-----------")
