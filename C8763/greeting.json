@@ -51,7 +51,7 @@
         {
           "type": "button",
           "action": {
-            "type": "text",
+            "type": "message",
             "label": "開啟相機",
             "text": "開啟相機"
           },
@@ -65,7 +65,7 @@
         {
           "type": "button",
           "action": {
-            "type": "text",
+            "type": "message",
             "label": "開啟相簿",
             "text": "開啟相簿"
           },

@@ -56,8 +56,8 @@ def callback(request):
         for event in events:
             print(event)
             if(event.message.type == "text"):
-                # replyGreeting.replyGreeting(event.reply_token)
-                print(event.reply_token)
+                replyGreeting.replyGreeting(event.reply_token)
+                # print(event.reply_token)
             elif(event.message.type == "image"):
                 try:
                     img_rgb = getImage.getImageFromID(event.message.id)
