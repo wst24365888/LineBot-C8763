@@ -29,6 +29,8 @@ greetingMessage = None
 with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
     greetingDict = json.load(f)
     greetingMessage = FlexSendMessage.new_from_json_dict(greetingDict)
+    print(greetingMessage)
+    print("-----------")
 
 def saveImg(messageId, img_rgb):
     img = Image.fromarray(img_rgb, 'RGBA')
@@ -62,6 +64,7 @@ def callback(request):
  
         for event in events:
             print(event)
+            print(greetingMessage)
             if(event.message.type == "text"):
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
