@@ -160,9 +160,6 @@ def getC8763Overlay(IMG_RGB):
         #     # Draw a circle
         #     cv2.circle(img=IMG_RGB, center=(x, y), radius=1, color=(0, 255, 0), thickness=-1)
 
-    # plt.figure(figsize=(20, 20))
-    # plt.imshow(IMG_RGB)
-
     print("Overlay Complete.")
 
     return IMG_RGB

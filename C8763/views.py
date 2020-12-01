@@ -53,13 +53,22 @@ def callback(request):
             return HttpResponseBadRequest()
  
         for event in events:
-            try:
-                print(event)
-                img_rgb = getImage.getImageFromID(event.message.id)
-                saveImg(event.message.id, filter_C8763.getC8763Overlay(img_rgb))
-                link = uploadImage(event.message.id, "/app/{}.png".format(event.message.id))
-                
-                if isinstance(event, MessageEvent):  # 如果有訊息事件
+            print(event)
+            if(event.message.type == "text"):
+                line_bot_api.reply_message(  # 回復傳入的訊息文字
+                    event.reply_token,
+                    TextSendMessage(
+                        text="上傳含人臉ㄉ照片，他會變得很快~"
+                    )
+                )
+            elif(event.message.type == "image"):
+                try:
+                    img_rgb = getImage.getImageFromID(event.message.id)
+                    saveImg(event.message.id, filter_C8763.getC8763Overlay(img_rgb))
+                    link = uploadImage(event.message.id, "/app/{}.png".format(event.message.id))
+                    
+                    # if isinstance(event, MessageEvent):  # 如果有訊息事件
+                        
                     line_bot_api.reply_message(  # 回復傳入的訊息文字
                         event.reply_token,
                         ImageSendMessage(
@@ -67,9 +76,9 @@ def callback(request):
                             preview_image_url=link
                         )
                     )
-            except Exception as e:
-                print(e)
-                line_bot_api.reply_message(  # 回復傳入的訊息文字
+                except Exception as e:
+                    print(e)
+                    line_bot_api.reply_message(  # 回復傳入的訊息文字
                         event.reply_token,
                         TextSendMessage(
                             text="An Error occurred: {}".format(e)
