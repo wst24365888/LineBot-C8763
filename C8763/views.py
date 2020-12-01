@@ -24,7 +24,7 @@ imgur_client = imgurUpload.setauthorize()
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
-with open("greeting.json", 'r', encoding='utf8') as f:
+with open("/app/greeting.json", 'r', encoding='utf8') as f:
         jsonArray = json.load(f)
 
 greetingMessage = None
