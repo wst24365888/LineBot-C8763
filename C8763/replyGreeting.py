@@ -32,6 +32,9 @@ def replyGreeting(replyToken):
         "Authorization": "Bearer {}".format(settings.LINE_CHANNEL_ACCESS_TOKEN)
     }
 
+    print(data)
+    print(headers)
+
     r = post_data("https://api.line.me/v2/bot/message/reply", data, headers)
 
     print(r)
