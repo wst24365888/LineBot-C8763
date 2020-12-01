@@ -9,10 +9,9 @@ from linebot.models import (
     MessageEvent, ImagemapSendMessage, TextSendMessage, ImageSendMessage, LocationSendMessage, FlexSendMessage, VideoSendMessage
 )
 
-import json
-
 from . import getImage
 from . import imgurUpload
+from . import replyGreeting
 from C8763_Overlay import C8763 as filter_C8763
 from PIL import Image
 
@@ -23,11 +22,6 @@ imgur_client = imgurUpload.setauthorize()
  
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
-
-greetingMessage = None
-
-with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
-    greetingMessage = json.load(f)
     
 def saveImg(messageId, img_rgb):
     img = Image.fromarray(img_rgb, 'RGBA')
@@ -62,10 +56,7 @@ def callback(request):
         for event in events:
             print(event)
             if(event.message.type == "text"):
-                line_bot_api.reply_message(  # 回復傳入的訊息文字
-                    event.reply_token,
-                    greetingMessage
-                )
+                replyGreeting.replyGreeting(event.reply_token)
             elif(event.message.type == "image"):
                 try:
                     img_rgb = getImage.getImageFromID(event.message.id)
