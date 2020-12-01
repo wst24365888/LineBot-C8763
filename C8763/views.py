@@ -27,7 +27,8 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 greetingMessage = None
 
 with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
-    greetingMessage = FlexSendMessage.new_from_json_dict(f)
+    greetingDict = json.load(f)
+    greetingMessage = FlexSendMessage.new_from_json_dict(greetingDict)
 
 def saveImg(messageId, img_rgb):
     img = Image.fromarray(img_rgb, 'RGBA')
