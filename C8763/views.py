@@ -24,14 +24,10 @@ imgur_client = imgurUpload.setauthorize()
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
-with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
-        jsonArray = json.load(f)
-
 greetingMessage = None
 
-for jsonObject in jsonArray:
-    if jsonObject.get('type') == "bubble":
-        greetingMessage = FlexSendMessage.new_from_json_dict(jsonObject)
+with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
+    greetingMessage = FlexSendMessage.new_from_json_dict(f)
 
 def saveImg(messageId, img_rgb):
     img = Image.fromarray(img_rgb, 'RGBA')
