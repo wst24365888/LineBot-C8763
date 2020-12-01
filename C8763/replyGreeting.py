@@ -22,29 +22,29 @@ def replyGreeting(replyToken):
             {
                 "type": "flex",
                 "altText": "您有星爆訊息",
-                "contents": greetingMessage
+                "contents": greetingMessage,
+                "quickReply": {
+                    "items": [
+                        {
+                            "type": "action",
+                            # "imageUrl": "https://xxx/image1.png",
+                            "action": {
+                                "type": "camera",
+                                "label": "開啟相機"
+                            }
+                        },
+                        {
+                            "type": "action",
+                            # "imageUrl": "https://xxx/image1.png",
+                            "action": {
+                                "type": "cameraRoll",
+                                "label": "開啟相簿"
+                            }
+                        },
+                    ]
+                }
             }
         ],
-        "quickReply": {
-            "items": [
-                {
-                    "type": "action",
-                    # "imageUrl": "https://xxx/image1.png",
-                    "action": {
-                        "type": "camera",
-                        "label": "開啟相機"
-                    }
-                },
-                {
-                    "type": "action",
-                    # "imageUrl": "https://xxx/image1.png",
-                    "action": {
-                        "type": "cameraRoll",
-                        "label": "開啟相簿"
-                    }
-                },
-            ]
-        }
     })
 
     headers = {
