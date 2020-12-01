@@ -18,9 +18,10 @@ def replyGreeting(replyToken):
     with open("/app/C8763/greeting.json", 'r', encoding='utf8') as f:
         greetingMessage = json.load(f)
 
-    gifs = ["https://imgur.com/U8nbxfa.gif", "https://imgur.com/uGGaVZP.gif", "https://imgur.com/wGz2pqK.gif"]
+    # gifs = ["https://imgur.com/U8nbxfa.gif", "https://imgur.com/uGGaVZP.gif", "https://imgur.com/wGz2pqK.gif"]
+    pics = ["https://i.ytimg.com/vi/paIuEIufGyw/maxresdefault.jpg", "https://i.ytimg.com/vi/B_AABV9KUQY/maxresdefault.jpg", "https://imgur.com/LpNni5L.jpg"]
 
-    greetingMessage["hero"]["url"] = gifs[random.randint(0,2)]
+    greetingMessage["hero"]["url"] = pics[random.randint(0,2)]
 
     data = json.dumps({
         "replyToken": replyToken,
