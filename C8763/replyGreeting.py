@@ -24,8 +24,8 @@ def replyGreeting(replyToken, usageCounter):
 
     greetingMessage["hero"]["url"] = pics[random.randint(0,2)]
     greetingMessage["footer"]["contents"][1]["contents"][0]["text"] = str(usageCounter)
-    greetingMessage["footer"]["contents"][2]["contents"][0]["text"] = "({}%)".format(int(usageCounter/48763))
-    greetingMessage["footer"]["contents"][2]["contents"][1]["contents"][0]["width"] = "{}%".format(int(usageCounter/48763))
+    greetingMessage["footer"]["contents"][2]["contents"][0]["text"] = "({}%)".format(int(usageCounter*100/48763))
+    greetingMessage["footer"]["contents"][2]["contents"][1]["contents"][0]["width"] = "{}%".format(int(usageCounter*100/48763))
 
     data = json.dumps({
         "replyToken": replyToken,
