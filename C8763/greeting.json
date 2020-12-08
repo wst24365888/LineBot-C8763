@@ -24,13 +24,13 @@
   },
   "hero": {
     "type": "image",
-    "url": "https://imgur.com/wGz2pqK.gif",
+    "url": "https://i.ytimg.com/vi/paIuEIufGyw/maxresdefault.jpg",
     "margin": "none",
     "size": "full",
     "aspectRatio": "1.325:1",
     "aspectMode": "cover",
     "backgroundColor": "#000000FF",
-    "animated": true
+    "animated": false
   },
   "body": {
     "type": "box",
