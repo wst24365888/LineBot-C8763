@@ -20,7 +20,7 @@ def replyGreeting(replyToken, usageCounter):
         f.close()
 
     # gifs = ["https://imgur.com/U8nbxfa.gif", "https://imgur.com/uGGaVZP.gif", "https://imgur.com/wGz2pqK.gif"]
-    pics = ["https://i.ytimg.com/vi/paIuEIufGyw/maxresdefault.jpg", "https://i.ytimg.com/vi/B_AABV9KUQY/maxresdefault.jpg", "https://imgur.com/LpNni5L.jpg"]
+    pics = ["https://i.ytimg.com/vi/paIuEIufGyw/maxresdefault.jpg", "https://i.ytimg.com/vi/B_AABV9KUQY/maxresdefault.jpg", "https://imgur.com/LpNni5L.jpg", "https://imgur.com/LpNni5L"]
 
     greetingMessage["hero"]["url"] = pics[random.randint(0,2)]
     greetingMessage["footer"]["contents"][1]["contents"][0]["text"] = str(usageCounter)
@@ -70,7 +70,7 @@ def replyGreeting(replyToken, usageCounter):
         "Authorization": "Bearer {}".format(settings.LINE_CHANNEL_ACCESS_TOKEN)
     }
 
-    # print(data)
+    print(data)
     # print(headers)
 
     r = post_data("https://api.line.me/v2/bot/message/reply", data, headers)
