@@ -20,9 +20,9 @@ def replyGreeting(replyToken, usageCounter):
         f.close()
 
     # gifs = ["https://imgur.com/U8nbxfa.gif", "https://imgur.com/uGGaVZP.gif", "https://imgur.com/wGz2pqK.gif"]
-    pics = ["https://i.ytimg.com/vi/paIuEIufGyw/maxresdefault.jpg", "https://i.ytimg.com/vi/B_AABV9KUQY/maxresdefault.jpg", "https://imgur.com/LpNni5L.jpg", "https://imgur.com/LpNni5L.png", "https://imgur.com/LpNni5L"]
+    pics = ["https://i.ytimg.com/vi/paIuEIufGyw/maxresdefault.jpg", "https://i.ytimg.com/vi/B_AABV9KUQY/maxresdefault.jpg", "https://imgur.com/LpNni5L.jpg"]
 
-    greetingMessage["hero"]["url"] = pics[random.randint(0,4)]
+    greetingMessage["hero"]["url"] = pics[random.randint(0,2)]
     greetingMessage["footer"]["contents"][1]["contents"][0]["text"] = str(usageCounter)
     greetingMessage["footer"]["contents"][2]["contents"][0]["text"] = "({}%)".format(int(usageCounter*100/48763))
     greetingMessage["footer"]["contents"][2]["contents"][1]["contents"][0]["width"] = "{}%".format(int(usageCounter*100/48763))
