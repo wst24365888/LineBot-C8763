@@ -46,7 +46,8 @@
       },
       {
         "type": "separator",
-        "margin": "xxl"
+        "margin": "xxl",
+        "color": "#FFFFFFFF"
       },
       {
         "type": "box",
@@ -64,7 +65,8 @@
           },
           {
             "type": "separator",
-            "margin": "xxl"
+            "margin": "xxl",
+            "color": "#FFFFFFFF"
           },
           {
             "type": "button",
