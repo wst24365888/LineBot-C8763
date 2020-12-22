@@ -59,22 +59,6 @@ def replyGreeting(replyToken, usageCounter):
                                 "label": "開啟相簿"
                             }
                         },
-                        {
-                            "type": "action",
-                            "action": {
-                                "type": "uri",
-                                "label": "填寫回饋表單",
-                                "uri": "https://reurl.cc/4mA0zD"
-                            }
-                        },
-                        {
-                            "type": "action",
-                            "action": {
-                                "type": "uri",
-                                "label": "分享星爆機器人",
-                                "uri": "https://line.me/R/nv/recommendOA/@179lunot"
-                            }
-                        }
                     ]
                 }
             }
