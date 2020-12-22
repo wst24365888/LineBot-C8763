@@ -6,7 +6,19 @@ from django.conf import settings
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import (
-    MessageEvent, ImagemapSendMessage, TextSendMessage, ImageSendMessage, LocationSendMessage, FlexSendMessage, VideoSendMessage
+    MessageEvent, 
+    ImagemapSendMessage, 
+    TextSendMessage, 
+    ImageSendMessage, 
+    LocationSendMessage, 
+    FlexSendMessage, 
+    VideoSendMessage, 
+    QuickReply, 
+    QuickReplyButton,
+    URIAction,
+    MessageAction,
+    CameraAction,
+    CameraRollAction
 )
 
 from . import getImage
@@ -76,10 +88,34 @@ def callback(request):
                         
                     line_bot_api.reply_message(
                         event.reply_token,
-                        ImageSendMessage(
-                            original_content_url=link,
-                            preview_image_url=link
-                        )
+                        [
+                            ImageSendMessage(
+                                original_content_url=link,
+                                preview_image_url=link
+                            ),
+                            TextSendMessage(
+                                text="點擊下方快速回覆以繼續星爆♥️",
+                                quick_reply=QuickReply(
+                                    items=[
+                                        QuickReplyButton(
+                                            action=MessageAction(label="使用說明", text="使用說明")
+                                        ),
+                                        QuickReplyButton(
+                                            action=CameraAction(label="開啟相機")
+                                        ),
+                                        QuickReplyButton(
+                                            action=CameraRollAction(label="開啟相簿")
+                                        ),
+                                        QuickReplyButton(
+                                            action=URIAction(label="填寫回饋表單", uri="")
+                                        ),
+                                        QuickReplyButton(
+                                            action=URIAction(label="分享星爆機器人", uri="https://line.me/R/nv/recommendOA/@179lunot")
+                                        )
+                                    ]
+                                )
+                            )
+                        ] 
                     )
                 except Exception as e:
                     print(e)
