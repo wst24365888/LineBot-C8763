@@ -43,6 +43,40 @@
         "align": "center",
         "contents": [],
         "adjustMode": "shrink-to-fit"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "填寫回饋表單",
+              "uri": "https://reurl.cc/4mA0zD"
+            },
+            "style": "primary",
+            "color": "#FFBC0A"
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "分享星爆機器人",
+              "uri": "https://line.me/R/nv/recommendOA/@179lunot"
+            },
+            "style": "primary",
+            "color": "#FFBC0A"
+          }
+        ]
       }
     ],
     "paddingAll": "xxl"

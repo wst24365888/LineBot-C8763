@@ -106,12 +106,6 @@ def callback(request):
                                         QuickReplyButton(
                                             action=CameraRollAction(label="開啟相簿")
                                         ),
-                                        QuickReplyButton(
-                                            action=URIAction(label="填寫回饋表單", uri="https://reurl.cc/4mA0zD")
-                                        ),
-                                        QuickReplyButton(
-                                            action=URIAction(label="分享星爆機器人", uri="https://line.me/R/nv/recommendOA/@179lunot")
-                                        )
                                     ]
                                 )
                             )
