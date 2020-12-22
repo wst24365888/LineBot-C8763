@@ -94,7 +94,8 @@ def callback(request):
                                 preview_image_url=link
                             ),
                             TextSendMessage(
-                                text="點擊下方快速回覆以繼續星爆♥️",
+                                # ♥
+                                text="點擊下方快速回覆以繼續星爆",
                                 quick_reply=QuickReply(
                                     items=[
                                         QuickReplyButton(
