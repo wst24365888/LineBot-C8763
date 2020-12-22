@@ -64,7 +64,7 @@ def replyGreeting(replyToken, usageCounter):
                             "action": {
                                 "type": "uri",
                                 "label": "填寫回饋表單",
-                                "uri": ""
+                                "uri": "https://reurl.cc/4mA0zD"
                             }
                         },
                         {
