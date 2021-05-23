@@ -7,7 +7,7 @@ from PIL import Image
 from NCUAI_LineBot import settings
 
 def getImageFromID(messageID):
-    url = "https://api.line.me/v2/bot/message/{}/content".format(messageID)
+    url = "https://api-data.line.me/v2/bot/message/{}/content".format(messageID)
     headers = {'Authorization': "Bearer {}".format(settings.LINE_CHANNEL_ACCESS_TOKEN)}
 
     req = urllib.request.Request(url, headers=headers)
